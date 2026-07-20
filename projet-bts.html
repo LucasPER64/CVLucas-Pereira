@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ClimaTek - Projet de validation de BTS</title>
+  <title>ClimaTek - Projet de BTS terminé</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
 </head>
@@ -26,55 +26,62 @@
     <section class="page-head">
       <h1>ClimaTek - Projet de validation de BTS</h1>
       <p class="subtitle">
-        Supervision température / hygrométrie d'une voie d'aération de CTA (Centre de Traitement d'Air) : <br>
-        Capteur + microcontrôleur + base de donnees PostgreSQL + interface Grafana.
+        Un système complet pour mesurer la température et l'humidité d'une voie de CTA,
+        conserver les données et les consulter simplement.
       </p>
+
+      <div class="tags">
+        <span class="tag">Projet terminé</span>
+        <span class="tag">BTS CIEL obtenu</span>
+      </div>
 
       <div class="cta">
         <a class="btn btn-ghost" href="projets.html">Retour aux projets</a>
       </div>
 
-      <p class="muted" style="margin-top:10px; line-height:1.6;">
-        Le projet est toujours en cours de réalisation pour l'obtention de mon BTS CIEL, je suis actuellement en phase de réflexion et de définition technique.
+      <p class="muted" style="margin-top:10px; line-height:1.6; max-width:780px;">
+        J'ai réalisé ClimaTek dans le cadre de la validation de mon BTS CIEL. Le projet est aujourd'hui
+        terminé : il m'a permis de travailler sur toute la chaîne, de la récupération des mesures
+        jusqu'à leur affichage dans Grafana.
       </p>
     </section>
 
     <section class="skills-grid">
       <div class="card">
-        <h2 style="margin:0 0 10px;">Architecture (vue simple)</h2>
+        <h2 style="margin:0 0 10px;">Le point de départ</h2>
         <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Après le déménagement de l'entreprise dans un nouveau local, un CTA (Centre de Traitement d Air) a été installé.</li>
-          <li>Ce CTA est en circuit fermé, il n'est pas relié à l'extérieur, rendant le dispositif non optimal.</li>
+          <li>Après le déménagement de l'entreprise, une CTA (centrale de traitement d'air) a été installée dans les nouveaux locaux.</li>
+          <li>Son fonctionnement en circuit fermé ne permettait pas un renouvellement d'air optimal.</li>
+          <li>Le besoin était donc de suivre les conditions dans la voie d'aération et de disposer de mesures lisibles dans le temps.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Architecture (vue simple)</h2>
+        <h2 style="margin:0 0 10px;">La solution mise en place</h2>
         <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Capteur : DFROBOT SHT31 (température + hygrométrie) à installer sur la zone à mesurer.</li>
-          <li>Microcontroleur : ESP32 programmé en C++, qui va recevoir les données du capteur et envoyer des messages à la base de données et aux volets motorisés.</li>
-          <li>Transmission : WiFi.</li>
-          <li>Base de données : PostgreSQL.</li>
-          <li>Supervision : Grafana.</li>
+          <li>Un capteur DFRobot SHT31 relève la température et l'humidité.</li>
+          <li>Un ESP32 programmé en C++ récupère les mesures et communique en Wi-Fi.</li>
+          <li>Les données sont enregistrées dans PostgreSQL pour garder un historique.</li>
+          <li>Grafana les présente sous forme de graphiques faciles à consulter.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Objectifs</h2>
+        <h2 style="margin:0 0 10px;">Ce que j'ai réalisé</h2>
         <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Mesurer la température et l'hygrométrie en continu sur une voie de CTA.</li>
-          <li>Centraliser les données dans une base PostgreSQL pour avoir un historique.</li>
-          <li>Visualiser facilement les mesures (courbes, tendances) via Grafana.</li>
-          <li>Mettre en place des seuils / alertes pour détecter rapidement une anomalie.</li>
+          <li>Lecture régulière des mesures de température et d'humidité.</li>
+          <li>Transmission et enregistrement des valeurs dans la base PostgreSQL.</li>
+          <li>Création d'une vue Grafana pour suivre les courbes et les tendances.</li>
+          <li>Préparation de seuils pour rendre les valeurs anormales plus faciles à repérer.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Supervision</h2>
+        <h2 style="margin:0 0 10px;">Ce que j'en retiens</h2>
         <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Dashboards Grafana : vues temps réel + historique sur plusieurs jours/semaines.</li>
-          <li>Indicateurs : min / max / moyenne, variations, détection de rupture de mesure.</li>
-          <li>Objectif : rendre le suivi simple pour l'exploitation.</li>
+          <li>Faire communiquer du matériel, du code et une base de données dans un même projet.</li>
+          <li>Avancer étape par étape en testant chaque partie avant de les relier.</li>
+          <li>Présenter des données techniques de façon claire pour qu'elles soient utiles au quotidien.</li>
         </ul>
       </div>
 
