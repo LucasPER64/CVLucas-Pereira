@@ -1,7 +1,7 @@
 const skillGroups = [
   {
-    title: "Reseau",
-    desc: "Mise en oeuvre et bases solides",
+    title: "Réseau",
+    desc: "Configuration, compréhension et recherche de pannes",
     tags: [
       { label: "IPv4", level: "moyen" },
       { label: "DHCP", level: "operationnel" },
@@ -9,12 +9,12 @@ const skillGroups = [
       { label: "Routage", level: "operationnel" },
       { label: "LAN / WAN", level: "moyen" },
       { label: "Cisco Packet Tracer", level: "moyen" },
-      { label: "Dépannage reseau", level: "operationnel" }
+      { label: "Dépannage réseau", level: "operationnel" }
     ]
   },
   {
-    title: "Systemes",
-    desc: "Administration et utilisation",
+    title: "Systèmes",
+    desc: "Installation, maintenance et utilisation au quotidien",
     tags: [
       { label: "Windows", level: "moyen" },
       { label: "Windows Server", level: "moyen" },
@@ -26,7 +26,7 @@ const skillGroups = [
   },
   {
     title: "Sauvegardes",
-    desc: "Protection des données et bonnes pratiques",
+    desc: "Automatisation, contrôle et suivi des sauvegardes",
     tags: [
       { label: "Stratégies de sauvegarde", level: "moyen" },
       { label: "Rotation / conservation", level: "moyen" },
@@ -37,7 +37,7 @@ const skillGroups = [
   },
   {
     title: "Support et terrain",
-    desc: "Relation client et interventions",
+    desc: "Interventions concrètes et accompagnement des utilisateurs",
     tags: [
       { label: "Support utilisateurs", level: "operationnel" },
       { label: "Prise en charge incidents", level: "moyen" },
@@ -48,8 +48,8 @@ const skillGroups = [
     ]
   },
   {
-    title: "Cybersécurite",
-    desc: "Notions et sensibilisation",
+    title: "Cybersécurité",
+    desc: "Des réflexes appliqués dans chaque intervention",
     tags: [
       { label: "Bonnes pratiques", level: "moyen" },
       { label: "Principes ISO", level: "bases" },
@@ -60,15 +60,15 @@ const skillGroups = [
   },
   {
     title: "Langues",
-    desc: "Langues utilisées dans un contexte professionnel",
+    desc: "Anglais technique utilisé pour la documentation",
     tags: [
-      { label: "Anglais (B1/B2)", level: "avance" },
-      { label: "Lecture / Rédaction de procédures en anglais", level: "avance" }
+      { label: "Anglais (B1/B2)", level: "moyen" },
+      { label: "Lecture de documentation technique", level: "moyen" }
     ]
   }
 ];
 
-// Ordre d'affichage: operationnel/avance en premier, puis moyen, puis bases
+// Ordre d'affichage : opérationnel/avancé en premier, puis moyen, puis bases
 const LEVEL_ORDER = { operationnel: 0, avance: 0, moyen: 1, bases: 2 };
 
 function normalize(s) {
