@@ -1,0 +1,121 @@
+<!doctype html>
+<html data-theme="light" lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Architecture, prototype et supervision Grafana du projet ClimaTek réalisé par Lucas Pereira." />
+  <meta name="theme-color" content="#f5f7fa" />
+  <title>ClimaTek en images</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Lucas Pereira</a>
+      <nav class="nav">
+        <a href="experience.html">Expérience</a>
+        <a href="formation.html">Formations</a>
+        <a href="competences.html">Compétences</a>
+        <a href="projets.html" class="active">Projets</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>ClimaTek en images</h1>
+      <p class="subtitle">
+        Du montage du capteur jusqu'à l'affichage dans Grafana, ces illustrations montrent
+        les principales étapes du projet.
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-ghost" href="projet-bts.html">Retour au projet</a>
+        <a class="btn btn-ghost" href="projets.html">Retour à la page des projets</a>
+      </div>
+    </section>
+
+    <section class="project-visuals" aria-labelledby="climatek-visuals-title">
+      <div class="project-visuals-heading">
+        <p class="project-kicker">Du prototype à la supervision</p>
+        <h2 id="climatek-visuals-title">Les étapes principales</h2>
+        <p>
+          L'ensemble relie le matériel, la transmission des mesures, leur stockage
+          et leur consultation dans une seule chaîne.
+        </p>
+      </div>
+
+      <div class="project-gallery">
+        <figure class="project-figure project-figure-wide project-figure-blue">
+          <img
+            src="assets/projets/climatek/architecture-globale.png"
+            alt="Schéma de l'architecture globale de ClimaTek, du capteur SHT31 jusqu'à Grafana"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            <strong>L'architecture globale</strong>
+            <span>Une vue d'ensemble de la chaîne : capteur, ESP32, serveur Flask, PostgreSQL et Grafana.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="project-figure project-figure-teal">
+          <img
+            src="assets/projets/climatek/capteur-esp32.png"
+            alt="Schéma du capteur SHT31 relié en I2C à un ESP32 qui transmet les mesures en Wi-Fi"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            <strong>La partie physique</strong>
+            <span>Le SHT31 relève la température et l'humidité, puis l'ESP32 transmet les mesures en Wi-Fi.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="project-figure project-figure-amber">
+          <img
+            src="assets/projets/climatek/supervision-grafana.png"
+            alt="Tableau de bord Grafana de ClimaTek avec les courbes de température et d'humidité"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            <strong>La supervision dans Grafana</strong>
+            <span>Les courbes rendent les mesures faciles à suivre et permettent de repérer rapidement une anomalie.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="project-figure project-figure-wide project-figure-coral">
+          <img
+            src="assets/projets/climatek/demonstration.png"
+            alt="Démonstration de ClimaTek avec le prototype physique et deux états du tableau de bord Grafana"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            <strong>La démonstration finale</strong>
+            <span>Le prototype terminé, avec les mesures réelles et leur affichage selon l'état de la voie d'aération.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2026 Lucas Pereira</small>
+    </div>
+  </footer>
+</body>
+</html>

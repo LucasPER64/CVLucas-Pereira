@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Captures et exemples techniques du projet de sauvegardes automatisées de Lucas Pereira." />
+  <meta name="theme-color" content="#f5f7fa" />
   <title>Captures du projet de sauvegardes</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
@@ -47,27 +49,24 @@
           Voici le type de rapport enregistré après une exécution. On y retrouve les horaires,
           les volumes et nombres de fichiers à la source et à l'arrivée, le statut et le journal associé.
         </p>
-        <img class="media-img" src="assets/projets/sauvegardes/01-rapport-db.png" alt="Rapport de sauvegarde anonymisé enregistré dans PostgreSQL">
+        <img class="media-img" src="assets/projets/sauvegardes/01-rapport-db.png" alt="Rapport de sauvegarde anonymisé enregistré dans PostgreSQL" width="1616" height="64" loading="lazy" decoding="async">
       </div>
-      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Connexion à PostgreSQL depuis PowerShell</h2>
         <p class="muted" style="line-height:1.6;">
           Le script interroge PostgreSQL pour récupérer les paramètres utiles à chaque sauvegarde,
           puis y enregistre le rapport une fois le traitement terminé.
         </p>
-        <img class="media-img tech-screenshot tech-wide" src="assets/projets/sauvegardes/02-psql-connexion.png" alt="Extrait anonymisé de la connexion PostgreSQL en PowerShell">
+        <img class="media-img tech-screenshot tech-wide" src="assets/projets/sauvegardes/02-psql-connexion.png" alt="Extrait anonymisé de la connexion PostgreSQL en PowerShell" width="935" height="148" loading="lazy" decoding="async">
       </div>
-      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Export Hyper-V (PowerShell)</h2>
         <p class="muted" style="line-height:1.6;">
           Cet extrait lance l'export d'une machine virtuelle à partir des paramètres récupérés dans la base.
           Le même principe permet d'adapter le script à plusieurs environnements.
         </p>
-        <img class="media-img tech-screenshot" src="assets/projets/sauvegardes/03-export-hyperv.png" alt="Extrait anonymisé du script d'export Hyper-V">
+        <img class="media-img tech-screenshot" src="assets/projets/sauvegardes/03-export-hyperv.png" alt="Extrait anonymisé du script d'export Hyper-V" width="450" height="134" loading="lazy" decoding="async">
       </div>
-      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Automatisation et planification des tâches</h2>
 
@@ -80,26 +79,24 @@
           <li><strong>Linux :</strong> Crontab lance les contrôles et le reporting sur le poste de sauvegarde interne.</li>
         </ul>
 
-        <img class="media-img" src="assets/projets/sauvegardes/06-task-scheduler.png" alt="Planificateur de taches Windows (scripts PowerShell)">
-        <img class="media-img" src="assets/projets/sauvegardes/07-crontab-verification.png" alt="Crontab Linux pour verification des sauvegardes">
+        <img class="media-img" src="assets/projets/sauvegardes/06-task-scheduler.png" alt="Planificateur de tâches Windows pour les scripts PowerShell" width="555" height="86" loading="lazy" decoding="async">
+        <img class="media-img" src="assets/projets/sauvegardes/07-crontab-verification.png" alt="Crontab Linux pour la vérification des sauvegardes" width="632" height="18" loading="lazy" decoding="async">
       </div>
-      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Email d’alerte (supervision)</h2>
         <p class="muted" style="line-height:1.6;">
           En cas d'anomalie, l'email précise ce qui doit être vérifié : taille insuffisante,
           délai dépassé, fichier manquant ou erreur d'exécution.
         </p>
-        <img class="media-img" src="assets/projets/sauvegardes/04-email-alerte.png" alt="Capture email d alerte (anonymisee)">
+        <img class="media-img" src="assets/projets/sauvegardes/04-email-alerte.png" alt="Email d'alerte de sauvegarde anonymisé" width="1135" height="320" loading="lazy" decoding="async">
       </div>
-      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Stockage sur le poste interne Linux</h2>
         <p class="muted" style="line-height:1.6;">
           Les sauvegardes sont rangées dans une arborescence stable afin de retrouver rapidement
           un client, une machine et une date de sauvegarde.
         </p>
-        <img class="media-img" src="assets/projets/sauvegardes/05-stockage-linux.png" alt="Capture stockage Linux">
+        <img class="media-img" src="assets/projets/sauvegardes/05-stockage-linux.png" alt="Arborescence du stockage Linux" width="586" height="104" loading="lazy" decoding="async">
       </div>
 
     </section>

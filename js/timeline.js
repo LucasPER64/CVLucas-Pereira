@@ -151,7 +151,7 @@ function buildTimeline() {
     const xStart = (startM - minM) * pxPerMonth + 40;
     const xEnd = ((endM + 1) - minM) * pxPerMonth + 40;
 
-    const w = Math.max(220, Math.min(900, xEnd - xStart));
+    const w = Math.max(220, Math.min(360, xEnd - xStart));
 
     const item = createItem(exp);
     item.style.left = `${xStart}px`;
@@ -266,6 +266,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const wrap = document.querySelector(".timeline-wrap");
   if (!wrap) return;
+
+  const resetTimelinePosition = () => {
+    wrap.scrollLeft = 0;
+  };
+
+  requestAnimationFrame(resetTimelinePosition);
+  window.addEventListener("pageshow", resetTimelinePosition);
 
   let dragged = false;
 

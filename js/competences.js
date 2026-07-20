@@ -28,9 +28,9 @@ const skillGroups = [
     title: "Sauvegardes",
     desc: "Automatisation, contrôle et suivi des sauvegardes",
     tags: [
-      { label: "Stratégies de sauvegarde", level: "moyen" },
-      { label: "Rotation / conservation", level: "moyen" },
-      { label: "Export / copie vers NAS", level: "moyen" },
+      { label: "Stratégies de sauvegarde", level: "operationnel" },
+      { label: "Rotation / conservation", level: "operationnel" },
+      { label: "Export / copie vers NAS", level: "operationnel" },
       { label: "Vérifications / tests", level: "operationnel" },
       { label: "Sensibilisation", level: "operationnel" }
     ]
@@ -51,19 +51,19 @@ const skillGroups = [
     title: "Cybersécurité",
     desc: "Des réflexes appliqués dans chaque intervention",
     tags: [
-      { label: "Bonnes pratiques", level: "moyen" },
-      { label: "Principes ISO", level: "bases" },
-      { label: "Risques", level: "moyen" },
-      { label: "Documentation procédures", level: "moyen" },
-      { label: "Sensibilisation", level: "moyen" }
+      { label: "Bonnes pratiques", level: "operationnel" },
+      { label: "Principes ISO", level: "operationnel" },
+      { label: "Risques", level: "operationnel" },
+      { label: "Documentation procédures", level: "operationnel" },
+      { label: "Sensibilisation", level: "operationnel" }
     ]
   },
   {
     title: "Langues",
     desc: "Anglais technique utilisé pour la documentation",
     tags: [
-      { label: "Anglais (B1/B2)", level: "moyen" },
-      { label: "Lecture de documentation technique", level: "moyen" }
+      { label: "Anglais (B1/B2)", level: "operationnel" },
+      { label: "Lecture de documentation technique", level: "operationnel" }
     ]
   }
 ];
@@ -111,8 +111,9 @@ function buildSkills() {
     const tagsHtml = tagsSorted.map(t => {
       if (typeof t === "string") {
         return `
-          <span class="tag" data-skill="${t}" data-tooltip="${t}">
+          <span class="tag level-qualite" data-skill="${t} qualite" data-tooltip="${t}">
             <span class="tag-text">${t}</span>
+            <span class="tag-badge">Qualité</span>
           </span>
         `;
       }
