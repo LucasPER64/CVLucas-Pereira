@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Projet d'automatisation et de supervision de sauvegardes sous Windows et Linux réalisé par Lucas Pereira." />
+  <meta name="theme-color" content="#f5f7fa" />
   <title>Projet - Sauvegardes automatisées</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -22,10 +26,18 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main-content" tabindex="-1">
     <section class="page-head">
-      <h1>Création de sauvegardes automatisées</h1><br>
-      <p class="subtitle">Mise en place et automatisation de sauvegardes securisées de différents types de données.</p>
+      <h1>Création de sauvegardes automatisées</h1>
+      <p class="subtitle">
+        Un projet mené en entreprise pour fiabiliser les sauvegardes et éviter de devoir contrôler
+        chaque machine manuellement.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Projet terminé</span>
+        <span class="tag">Réalisé en entreprise</span>
+      </div>
 
       <div class="cta">
         <a class="btn btn-ghost" href="projets.html">Retour aux projets</a>
@@ -36,56 +48,56 @@
 
     <section class="skills-grid">
       <div class="card">
-        <h2 style="margin:0 0 10px;">Objectifs</h2>
-        <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Automatiser des sauvegardes fiables et sécurisées (rotation, historisation).</li>
-          <li>Accéder rapidement aux données en cas d’incident (restore simple).</li>
-          <li>Tracer chaque sauvegarde via des rapports exploitables (PostgreSQL).</li>
-          <li>Être alerté rapidement en cas d’anomalie pour réduire le temps de réaction.</li>
+        <h2 class="card-title">Le besoin</h2>
+        <ul class="content-list">
+          <li>Lancer les sauvegardes automatiquement, avec rotation et historique.</li>
+          <li>Pouvoir retrouver rapidement les données après un incident.</li>
+          <li>Garder une trace claire de chaque exécution dans PostgreSQL.</li>
+          <li>Recevoir une alerte lorsqu'une sauvegarde ne se déroule pas comme prévu.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Ce que j'ai réalisé</h2>
-        <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Scripts adaptés par type de données : VM Hyper-V, dossiers, base de données, image système Windows.</li>
-          <li>Exports et copies vers un poste distant (poste de backup) pour centraliser les sauvegardes.</li>
-          <li>Automatisation via planificateur de tâches (Windows) et cron (Linux).</li>
-          <li>Gestion d’erreurs : logs, retours d’état, contrôles de présence et de taille.</li>
-          <li>Insertion des résultats (durées, volumes, statut) dans PostgreSQL.</li>
+        <h2 class="card-title">Ce que j'ai réalisé</h2>
+        <ul class="content-list">
+          <li>Écriture de scripts adaptés aux VM Hyper-V, dossiers, bases de données et images système Windows.</li>
+          <li>Centralisation des copies sur un poste de sauvegarde distant.</li>
+          <li>Planification sous Windows et Linux pour ne pas dépendre d'un lancement manuel.</li>
+          <li>Ajout de journaux et de contrôles sur la présence et la taille des fichiers.</li>
+          <li>Enregistrement des durées, volumes et statuts dans PostgreSQL.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Supervision et reporting</h2>
-        <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Table de rapports : début/fin, nombre d’éléments, taille source/destination, statut.</li>
-          <li>Emails d’alertes : retard de sauvegarde, taille insuffisante, erreurs d’exécution.</li>
-          <li>Objectif : une supervision rapide.</li>
+        <h2 class="card-title">Supervision et reporting</h2>
+        <ul class="content-list">
+          <li>Chaque rapport indique les horaires, le nombre d'éléments, les volumes copiés et le statut.</li>
+          <li>Un email signale les retards, tailles anormales ou erreurs d'exécution.</li>
+          <li>Le contrôle quotidien devient rapide : les problèmes ressortent sans parcourir tous les journaux.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Difficultés et apprentissages</h2>
-        <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Rendre les scripts robustes : gestion des erreurs réseau, chemins manquants, VM introuvable.</li>
-          <li>Standardiser les logs : messages courts, exploitables, homogènes.</li>
-          <li>Vérifier l’intégrité : contrôles de tailles, présence des dossiers, horodatage.</li>
+        <h2 class="card-title">Difficultés et apprentissages</h2>
+        <ul class="content-list">
+          <li>Prévoir les erreurs réseau, les chemins manquants ou une VM introuvable.</li>
+          <li>Écrire des messages de journal courts et compréhensibles, même plusieurs semaines plus tard.</li>
+          <li>Ne pas considérer une copie comme réussie sans vérifier sa taille, sa présence et son horodatage.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Résultats</h2>
-        <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li>Sauvegardes réutilisables, adaptables selon les clients et les besoins.</li>
-          <li>Données centralisées sur le poste de backup, avec historique.</li>
-          <li>Rapports enregistrés en base et consultation simplifiée.</li>
-          <li>Alertes email quotidiennes pour détecter rapidement les problèmes.</li>
+        <h2 class="card-title">Résultats</h2>
+        <ul class="content-list">
+          <li>Des scripts réutilisables et adaptables selon les données à protéger.</li>
+          <li>Des sauvegardes centralisées et conservées avec leur historique.</li>
+          <li>Des rapports consultables dans une base unique.</li>
+          <li>Des alertes quotidiennes qui permettent de réagir plus vite en cas de problème.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2 style="margin:0 0 10px;">Technologies et outils utilisés</h2>
+        <h2 class="card-title">Technologies et outils utilisés</h2>
         <div class="tags">
           <span class="tag">Windows</span>
           <span class="tag">Linux</span>

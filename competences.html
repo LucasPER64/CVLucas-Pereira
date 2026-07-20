@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Compétences de Lucas Pereira en réseaux, systèmes, sauvegardes, support et cybersécurité." />
+  <meta name="theme-color" content="#f5f7fa" />
   <title>Compétences - Lucas Pereira</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
   <script defer src="js/competences.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -23,10 +27,26 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main-content" tabindex="-1">
     <section class="page-head">
-      <h1>Compétences</h1><br>
-      <p class="subtitle">Vue d'ensemble de mes compétences.</p>
+      <h1>Compétences</h1>
+      <p class="subtitle">
+        Les compétences ci-dessous viennent de mes cours, mais surtout des interventions et projets
+        réalisés pendant mes deux années d'alternance.
+      </p>
+      <div class="skill-legend" aria-label="Code couleur des niveaux">
+        <span><span class="legend-color legend-operationnel" aria-hidden="true"></span>Opérationnel</span>
+        <span><span class="legend-color legend-moyen" aria-hidden="true"></span>Moyen</span>
+        <span><span class="legend-color legend-bases" aria-hidden="true"></span>Bases</span>
+        <span><span class="legend-color legend-qualite" aria-hidden="true"></span>Qualité professionnelle</span>
+      </div>
+
+      <div class="filter-row" role="search" aria-label="Rechercher une compétence">
+        <label class="sr-only" for="skillSearch">Rechercher une compétence</label>
+        <input class="input" id="skillSearch" type="search" placeholder="Ex. Linux, réseau, sauvegarde…" autocomplete="off" spellcheck="false">
+        <button class="btn btn-ghost" id="btnClearSkills" type="button">Effacer</button>
+        <span class="skill-count" id="skillCount" aria-live="polite"></span>
+      </div>
     </section>
 
     <section class="skills-grid" id="skillsGrid">

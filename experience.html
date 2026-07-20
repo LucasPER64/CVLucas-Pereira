@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Expériences professionnelles de Lucas Pereira dans le support, la maintenance, les systèmes et les sauvegardes informatiques." />
+  <meta name="theme-color" content="#f5f7fa" />
   <title>Expérience - Lucas Pereira</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
   <script defer src="js/timeline.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -23,26 +27,27 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main-content" tabindex="-1">
     <section class="page-head">
-      <h1>Activité professionnelle</h1><br>
+      <h1>Activité professionnelle</h1>
       <p class="subtitle">
-        Faites glisser la frise horizontalement ou utilisez la molette de votre souris en pointant la frise.<br><br>
-        Cliquez sur un poste pour voir les missions ainsi que les compétences acquises.
+        Mon alternance m'a permis de découvrir le métier sur le terrain, au contact des utilisateurs
+        et de situations très différentes. Faites défiler la frise puis sélectionnez une expérience
+        pour voir mes missions.
       </p>
     </section>
 
-    <section class="timeline-wrap">
-      <div class="timeline" id="timeline" aria-label="Frise chronologique">
+    <section class="timeline-wrap" aria-label="Frise chronologique des expériences" tabindex="0">
+      <div class="timeline" id="timeline">
       </div>
     </section>
 
   <section class="details">
-    <div class="card" id="detailsCard">
+    <div class="card" id="detailsCard" aria-live="polite">
       <h2 id="dTitle">Sélectionnez une expérience</h2>
       <p class="muted" id="dMeta">Cliquez sur une activité de la frise.</p>
 
-      <div id="detailsExtra" calss="is-hidden">
+      <div id="detailsExtra" class="is-hidden">
         <h3>Missions</h3>
         <ul id="dMissions"></ul>
 

@@ -3,15 +3,15 @@ const experiences = [
     id: "teknico",
     start: "2024-08",
     end: "2026-08",
-    title: "Alternance BTS CIEL",
+    title: "Technicien informatique en alternance",
     company: "Teknico",
     city: "Uhart-Cize",
     dateLabel: "août 2024 - août 2026",
     missions: [
-      "Dépannage informatique (postes utilisateurs, pannes matérielles, diagnostics logiciels)",
-      "Assemblage de postes",
-      "Mise en place et maintenance de solutions de sauvegarde sécurisées (exportation de machines virtuelles, de données)",
-      "Assistance aux utilisateurs"
+      "Diagnostic et dépannage de postes utilisateurs, côté matériel comme logiciel",
+      "Assemblage, préparation et installation de postes de travail",
+      "Mise en place et maintenance de sauvegardes de données et de machines virtuelles",
+      "Assistance aux utilisateurs et explication des solutions mises en place"
     ],
     skills: ["Relation client", "Windows", "Linux", "Réseau", "Sauvegardes", "Support utilisateurs", "Maintenance PC"]
   },
@@ -19,11 +19,11 @@ const experiences = [
     id: "leclerc-2024",
     start: "2024-06",
     end: "2024-08",
-    title: "Employé de mise en rayon",
+    title: "Employé libre-service",
     company: "E.Leclerc",
     city: "Aicirits-Camou-Suhast",
     dateLabel: "juin 2024 - août 2024",
-    missions: ["Employé de libre service (rayon liquide)"],
+    missions: ["Mise en rayon, rangement et suivi du rayon liquides"],
     skills: ["Rigueur", "Autonomie", "Organisation", "Travail en équipe"]
   },
   {
@@ -34,7 +34,7 @@ const experiences = [
     company: "E.Leclerc",
     city: "Sauveterre-de-Bearn",
     dateLabel: "juin 2023 - sept. 2023",
-    missions: ["Hôte de caisse", "Mise en rayon"],
+    missions: ["Accueil des clients et tenue de caisse", "Mise en rayon et rangement"],
     skills: ["Relation client", "Autonomie", "Organisation", "Travail en équipe"]
   },
   {
@@ -42,10 +42,10 @@ const experiences = [
     start: "2021-08",
     end: "2021-08",
     title: "Employé saisonnier",
-    company: "Castreur de mais",
+    company: "Castration du maïs",
     city: "St-Julien-en-Born",
     dateLabel: "août 2021",
-    missions: ["Travail saisonnier"],
+    missions: ["Travail saisonnier en équipe dans les cultures de maïs"],
     skills: ["Autonomie", "Rigueur"]
   },
   {
@@ -53,10 +53,10 @@ const experiences = [
     start: "2019-08",
     end: "2019-08",
     title: "Employé saisonnier",
-    company: "Castreur de mais",
+    company: "Castration du maïs",
     city: "Luxe Sumberraute",
     dateLabel: "août 2019",
-    missions: ["Travail saisonnier"],
+    missions: ["Travail saisonnier en équipe dans les cultures de maïs"],
     skills: ["Autonomie", "Rigueur"]
   }
 ];
@@ -77,6 +77,7 @@ function createItem(exp) {
   item.className = "tl-item";
   item.type = "button";
   item.dataset.id = exp.id;
+  item.setAttribute("aria-pressed", "false");
   item.setAttribute("aria-label", `${exp.title} - ${exp.company} (${exp.city})`);
   item.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -142,7 +143,7 @@ function buildTimeline() {
     el.appendChild(tick);
   }
 
-  const sorted = [...experiences].sort((a, b) => ymToIndex(b.start) - ymToIndex(a.start));
+  const sorted = [...experiences].sort((a, b) => ymToIndex(a.start) - ymToIndex(b.start));
 
   sorted.forEach(exp => {
     const startM = ymToIndex(exp.start);
@@ -151,7 +152,7 @@ function buildTimeline() {
     const xStart = (startM - minM) * pxPerMonth + 40;
     const xEnd = ((endM + 1) - minM) * pxPerMonth + 40;
 
-    const w = Math.max(220, Math.min(900, xEnd - xStart));
+    const w = Math.max(220, Math.min(360, xEnd - xStart));
 
     const item = createItem(exp);
     item.style.left = `${xStart}px`;
@@ -164,7 +165,10 @@ function buildTimeline() {
 }
 
 function clearSelection() {
-  document.querySelectorAll(".tl-item").forEach(n => n.classList.remove("selected"));
+  document.querySelectorAll(".tl-item").forEach(n => {
+    n.classList.remove("selected");
+    n.setAttribute("aria-pressed", "false");
+  });
 
   const t = document.getElementById("dTitle");
   const m = document.getElementById("dMeta");
@@ -186,7 +190,9 @@ function selectExperience(id) {
   if (!exp) return;
 
   document.querySelectorAll(".tl-item").forEach(n => {
-    n.classList.toggle("selected", n.dataset.id === id);
+    const isSelected = n.dataset.id === id;
+    n.classList.toggle("selected", isSelected);
+    n.setAttribute("aria-pressed", String(isSelected));
   });
 
   const t = document.getElementById("dTitle");
@@ -229,6 +235,7 @@ function enableDragScroll() {
   let startScroll = 0;
 
   wrap.addEventListener("mousedown", (e) => {
+    if (e.button !== 0) return;
     isDown = true;
     wrap.classList.add("dragging");
     startX = e.pageX;
@@ -254,8 +261,14 @@ function enableDragScroll() {
 
   wrap.addEventListener("wheel", (e) => {
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      wrap.scrollLeft += e.deltaY;
-      e.preventDefault();
+      const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+      const canMoveRight = e.deltaY > 0 && wrap.scrollLeft < maxScroll;
+      const canMoveLeft = e.deltaY < 0 && wrap.scrollLeft > 0;
+
+      if (canMoveRight || canMoveLeft) {
+        wrap.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
     }
   }, { passive: false });
 }
@@ -266,6 +279,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const wrap = document.querySelector(".timeline-wrap");
   if (!wrap) return;
+
+  const resetTimelinePosition = () => {
+    wrap.scrollLeft = 0;
+  };
+
+  requestAnimationFrame(resetTimelinePosition);
+  window.addEventListener("pageshow", resetTimelinePosition);
 
   let dragged = false;
 

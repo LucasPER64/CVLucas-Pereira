@@ -1,7 +1,7 @@
 const skillGroups = [
   {
-    title: "Reseau",
-    desc: "Mise en oeuvre et bases solides",
+    title: "Réseau",
+    desc: "Configuration, compréhension et recherche de pannes",
     tags: [
       { label: "IPv4", level: "moyen" },
       { label: "DHCP", level: "operationnel" },
@@ -9,12 +9,12 @@ const skillGroups = [
       { label: "Routage", level: "operationnel" },
       { label: "LAN / WAN", level: "moyen" },
       { label: "Cisco Packet Tracer", level: "moyen" },
-      { label: "Dépannage reseau", level: "operationnel" }
+      { label: "Dépannage réseau", level: "operationnel" }
     ]
   },
   {
-    title: "Systemes",
-    desc: "Administration et utilisation",
+    title: "Systèmes",
+    desc: "Installation, maintenance et utilisation au quotidien",
     tags: [
       { label: "Windows", level: "moyen" },
       { label: "Windows Server", level: "moyen" },
@@ -26,18 +26,18 @@ const skillGroups = [
   },
   {
     title: "Sauvegardes",
-    desc: "Protection des données et bonnes pratiques",
+    desc: "Automatisation, contrôle et suivi des sauvegardes",
     tags: [
-      { label: "Stratégies de sauvegarde", level: "moyen" },
-      { label: "Rotation / conservation", level: "moyen" },
-      { label: "Export / copie vers NAS", level: "moyen" },
+      { label: "Stratégies de sauvegarde", level: "operationnel" },
+      { label: "Rotation / conservation", level: "operationnel" },
+      { label: "Export / copie vers NAS", level: "operationnel" },
       { label: "Vérifications / tests", level: "operationnel" },
       { label: "Sensibilisation", level: "operationnel" }
     ]
   },
   {
     title: "Support et terrain",
-    desc: "Relation client et interventions",
+    desc: "Interventions concrètes et accompagnement des utilisateurs",
     tags: [
       { label: "Support utilisateurs", level: "operationnel" },
       { label: "Prise en charge incidents", level: "moyen" },
@@ -48,27 +48,27 @@ const skillGroups = [
     ]
   },
   {
-    title: "Cybersécurite",
-    desc: "Notions et sensibilisation",
+    title: "Cybersécurité",
+    desc: "Des réflexes appliqués dans chaque intervention",
     tags: [
-      { label: "Bonnes pratiques", level: "moyen" },
-      { label: "Principes ISO", level: "bases" },
-      { label: "Risques", level: "moyen" },
-      { label: "Documentation procédures", level: "moyen" },
-      { label: "Sensibilisation", level: "moyen" }
+      { label: "Bonnes pratiques", level: "operationnel" },
+      { label: "Principes ISO", level: "operationnel" },
+      { label: "Risques", level: "operationnel" },
+      { label: "Documentation procédures", level: "operationnel" },
+      { label: "Sensibilisation", level: "operationnel" }
     ]
   },
   {
     title: "Langues",
-    desc: "Langues utilisées dans un contexte professionnel",
+    desc: "Anglais technique utilisé pour la documentation",
     tags: [
-      { label: "Anglais (B1/B2)", level: "avance" },
-      { label: "Lecture / Rédaction de procédures en anglais", level: "avance" }
+      { label: "Anglais (B1/B2)", level: "operationnel" },
+      { label: "Lecture de documentation technique", level: "operationnel" }
     ]
   }
 ];
 
-// Ordre d'affichage: operationnel/avance en premier, puis moyen, puis bases
+// Ordre d'affichage : opérationnel/avancé en premier, puis moyen, puis bases
 const LEVEL_ORDER = { operationnel: 0, avance: 0, moyen: 1, bases: 2 };
 
 function normalize(s) {
@@ -82,10 +82,10 @@ function updateCount() {
   const countEl = document.getElementById("skillCount");
   if (!countEl) return;
 
-  const visibleTags = [...document.querySelectorAll(".tag")]
+  const visibleTags = [...document.querySelectorAll(".skill-tags .tag")]
     .filter(t => !t.classList.contains("is-hidden")).length;
 
-  countEl.textContent = `${visibleTags} competences affichees`;
+  countEl.textContent = `${visibleTags} compétence${visibleTags > 1 ? "s" : ""} affichée${visibleTags > 1 ? "s" : ""}`;
 }
 
 function buildSkills() {
@@ -111,8 +111,9 @@ function buildSkills() {
     const tagsHtml = tagsSorted.map(t => {
       if (typeof t === "string") {
         return `
-          <span class="tag" data-skill="${t}" data-tooltip="${t}">
+          <span class="tag level-qualite" data-skill="${t} qualite">
             <span class="tag-text">${t}</span>
+            <span class="tag-badge">Qualité</span>
           </span>
         `;
       }
@@ -126,7 +127,7 @@ function buildSkills() {
       const data = `${label} ${level}`;
 
       return `
-        <span class="tag level-${level}" data-skill="${data}" data-tooltip="${label}">
+        <span class="tag level-${level}" data-skill="${data}">
           <span class="tag-text">${label}</span>
           <span class="tag-badge">${level === "avance" ? "Avancé" : (level === "operationnel" ? "Opérationnel" : level)}</span>
         </span>
@@ -189,69 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (input) input.focus();
     });
   }
-
-  const tip = document.createElement("div");
-  tip.className = "skill-tooltip";
-  document.body.appendChild(tip);
-
-  function hideTip() {
-    tip.style.display = "none";
-  }
-
-  function showTip(text, rect) {
-    tip.textContent = text;
-
-    tip.style.display = "block";
-    tip.style.left = "0px";
-    tip.style.top = "0px";
-
-    const margin = 10;
-    const padding = 12;
-
-    let x = rect.left;
-    let y = rect.bottom + margin;
-
-    const tipRect = tip.getBoundingClientRect();
-
-    const maxX = window.innerWidth - tipRect.width - padding;
-    if (x > maxX) x = maxX;
-    if (x < padding) x = padding;
-
-    if (y + tipRect.height + padding > window.innerHeight) {
-      y = rect.top - tipRect.height - margin;
-    }
-
-    tip.style.left = `${x}px`;
-    tip.style.top = `${y}px`;
-  }
-
-  function handleMove(e) {
-    const tag = e.target.closest(".skill-tags .tag");
-    if (!tag) {
-      hideTip();
-      return;
-    }
-
-    const text = tag.getAttribute("data-tooltip");
-    if (!text || tag.classList.contains("is-hidden")) {
-      hideTip();
-      return;
-    }
-
-    const rect = tag.getBoundingClientRect();
-    showTip(text, rect);
-  }
-
-  document.addEventListener("mouseover", handleMove);
-  document.addEventListener("mousemove", handleMove);
-
-  document.addEventListener("mouseout", (e) => {
-    const tag = e.target.closest(".skill-tags .tag");
-    if (tag) hideTip();
-  });
-
-  window.addEventListener("scroll", hideTip, true);
-  window.addEventListener("resize", hideTip);
 });
 
 
