@@ -3,15 +3,15 @@ const experiences = [
     id: "teknico",
     start: "2024-08",
     end: "2026-08",
-    title: "Technicien informatique en alternance",
+    title: "Alternance BTS CIEL",
     company: "Teknico",
     city: "Uhart-Cize",
     dateLabel: "août 2024 - août 2026",
     missions: [
-      "Diagnostic et dépannage de postes utilisateurs, côté matériel comme logiciel",
-      "Assemblage, préparation et installation de postes de travail",
-      "Mise en place et maintenance de sauvegardes de données et de machines virtuelles",
-      "Assistance aux utilisateurs et explication des solutions mises en place"
+      "Dépannage informatique (postes utilisateurs, pannes matérielles, diagnostics logiciels)",
+      "Assemblage de postes",
+      "Mise en place et maintenance de solutions de sauvegarde sécurisées (exportation de machines virtuelles, de données)",
+      "Assistance aux utilisateurs"
     ],
     skills: ["Relation client", "Windows", "Linux", "Réseau", "Sauvegardes", "Support utilisateurs", "Maintenance PC"]
   },
@@ -19,11 +19,11 @@ const experiences = [
     id: "leclerc-2024",
     start: "2024-06",
     end: "2024-08",
-    title: "Employé libre-service",
+    title: "Employé de mise en rayon",
     company: "E.Leclerc",
     city: "Aicirits-Camou-Suhast",
     dateLabel: "juin 2024 - août 2024",
-    missions: ["Mise en rayon, rangement et suivi du rayon liquides"],
+    missions: ["Employé de libre service (rayon liquide)"],
     skills: ["Rigueur", "Autonomie", "Organisation", "Travail en équipe"]
   },
   {
@@ -34,7 +34,7 @@ const experiences = [
     company: "E.Leclerc",
     city: "Sauveterre-de-Bearn",
     dateLabel: "juin 2023 - sept. 2023",
-    missions: ["Accueil des clients et tenue de caisse", "Mise en rayon et rangement"],
+    missions: ["Hôte de caisse", "Mise en rayon"],
     skills: ["Relation client", "Autonomie", "Organisation", "Travail en équipe"]
   },
   {
@@ -42,10 +42,10 @@ const experiences = [
     start: "2021-08",
     end: "2021-08",
     title: "Employé saisonnier",
-    company: "Castration du maïs",
+    company: "Castreur de mais",
     city: "St-Julien-en-Born",
     dateLabel: "août 2021",
-    missions: ["Travail saisonnier en équipe dans les cultures de maïs"],
+    missions: ["Travail saisonnier"],
     skills: ["Autonomie", "Rigueur"]
   },
   {
@@ -53,10 +53,10 @@ const experiences = [
     start: "2019-08",
     end: "2019-08",
     title: "Employé saisonnier",
-    company: "Castration du maïs",
+    company: "Castreur de mais",
     city: "Luxe Sumberraute",
     dateLabel: "août 2019",
-    missions: ["Travail saisonnier en équipe dans les cultures de maïs"],
+    missions: ["Travail saisonnier"],
     skills: ["Autonomie", "Rigueur"]
   }
 ];
@@ -151,7 +151,7 @@ function buildTimeline() {
     const xStart = (startM - minM) * pxPerMonth + 40;
     const xEnd = ((endM + 1) - minM) * pxPerMonth + 40;
 
-    const w = Math.max(220, Math.min(360, xEnd - xStart));
+    const w = Math.max(220, Math.min(900, xEnd - xStart));
 
     const item = createItem(exp);
     item.style.left = `${xStart}px`;
@@ -266,13 +266,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const wrap = document.querySelector(".timeline-wrap");
   if (!wrap) return;
-
-  const resetTimelinePosition = () => {
-    wrap.scrollLeft = 0;
-  };
-
-  requestAnimationFrame(resetTimelinePosition);
-  window.addEventListener("pageshow", resetTimelinePosition);
 
   let dragged = false;
 

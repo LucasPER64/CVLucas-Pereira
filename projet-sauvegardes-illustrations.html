@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Captures et exemples techniques du projet de sauvegardes automatisées de Lucas Pereira." />
-  <meta name="theme-color" content="#f5f7fa" />
-  <title>Captures du projet de sauvegardes</title>
+  <title>Projet - Illustrations (Sauvegardes)</title>
   <link rel="stylesheet" href="css/style.css" />
   <script defer src="js/main.js"></script>
 </head>
@@ -26,10 +24,9 @@
 
   <main class="container">
     <section class="page-head">
-      <h1>Le projet de sauvegardes en images</h1><br>
+      <h1>Illustrations - Sauvegardes automatisées</h1><br>
       <p class="subtitle">
-        Ces captures montrent quelques étapes du fonctionnement : enregistrement des rapports,
-        export Hyper-V, planification, alertes et stockage des données.
+        Exemples d'illustrations : Rapports enregistrés, connexion PostgreSQL, export Hyper-V, automatisation (Windows/Linux), alertes email et stockage Linux.
       </p>
 
       <div class="cta">
@@ -38,7 +35,7 @@
       </div>
 
       <p class="muted" style="margin-top:10px; line-height:1.6;"><br>
-        Les informations liées aux clients et les identifiants ont été masqués pour respecter leur confidentialité.
+        Les captures sont anonymisées (clients, identifiants) afin de respecter la confidentialité.
       </p>
     </section>
 
@@ -46,57 +43,59 @@
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Rapports enregistrés dans PostgreSQL</h2>
         <p class="muted" style="line-height:1.6;">
-          Voici le type de rapport enregistré après une exécution. On y retrouve les horaires,
-          les volumes et nombres de fichiers à la source et à l'arrivée, le statut et le journal associé.
+          Exemple d’un rapport : identifiant du rapport, nom de la sauvegarde volumes, identifiant de la sauvegarde, date de début et de fin, nombre et taille de fichiers à la cource
+          et à l'arrivée, un status de la sauvegarde et son log associé.
         </p>
-        <img class="media-img" src="assets/projets/sauvegardes/01-rapport-db.png" alt="Rapport de sauvegarde anonymisé enregistré dans PostgreSQL" width="1616" height="64" loading="lazy" decoding="async">
+        <img class="media-img" src="assets/projets/sauvegardes/01-rapport-db.png" alt="Capture rapports PostgreSQL (anonymisee)">
       </div>
+      <br>
       <div class="card card-full">
-        <h2 style="margin:0 0 10px;">Connexion à PostgreSQL depuis PowerShell</h2>
+        <h2 style="margin:0 0 10px;">Connexion psql (script Powershell)</h2>
         <p class="muted" style="line-height:1.6;">
-          Le script interroge PostgreSQL pour récupérer les paramètres utiles à chaque sauvegarde,
-          puis y enregistre le rapport une fois le traitement terminé.
+          Exemple de connexion postgreSQL utilisée pour interroger la base, récupérer les paramètres propres aux clients et envoyer les rapports présentés juste avant.
         </p>
-        <img class="media-img tech-screenshot tech-wide" src="assets/projets/sauvegardes/02-psql-connexion.png" alt="Extrait anonymisé de la connexion PostgreSQL en PowerShell" width="935" height="148" loading="lazy" decoding="async">
+        <img class="media-img tech-screenshot tech-wide" src="assets/projets/sauvegardes/02-psql-connexion.png" alt="">
       </div>
+      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Export Hyper-V (PowerShell)</h2>
         <p class="muted" style="line-height:1.6;">
-          Cet extrait lance l'export d'une machine virtuelle à partir des paramètres récupérés dans la base.
-          Le même principe permet d'adapter le script à plusieurs environnements.
+          Exemple de script Powershell qui lance l'exportation de la machine virtuelle des clients en prenant en paramètres les identifiants données sur notre base de données.
         </p>
-        <img class="media-img tech-screenshot" src="assets/projets/sauvegardes/03-export-hyperv.png" alt="Extrait anonymisé du script d'export Hyper-V" width="450" height="134" loading="lazy" decoding="async">
+        <img class="media-img tech-screenshot" src="assets/projets/sauvegardes/03-export-hyperv.png" alt="">
       </div>
+      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Automatisation et planification des tâches</h2>
 
         <p class="muted" style="line-height:1.6;">
-          Les sauvegardes sont lancées à heure fixe, puis contrôlées régulièrement sans intervention manuelle.
+          Lancement automatique des sauvegardes et verification réguliere de leur bon deroulement,
+          sans intervention humaine.
         </p>
   
         <ul style="margin:10px 0 0; padding-left:18px; line-height:1.7; color:var(--muted);">
-          <li><strong>Windows :</strong> le Planificateur de tâches déclenche les exports Hyper-V, les sauvegardes et les copies Robocopy.</li>
-          <li><strong>Linux :</strong> Crontab lance les contrôles et le reporting sur le poste de sauvegarde interne.</li>
+          <li><strong>Windows :</strong> Planificateur de taches pour déclencher les scripts (exports Hyper-V, sauvegardes, robocopy).</li>
+          <li><strong>Linux :</strong> Crontab pour automatiser les scripts de verification et de reporting sur le poste de backup interne.</li>
         </ul>
 
-        <img class="media-img" src="assets/projets/sauvegardes/06-task-scheduler.png" alt="Planificateur de tâches Windows pour les scripts PowerShell" width="555" height="86" loading="lazy" decoding="async">
-        <img class="media-img" src="assets/projets/sauvegardes/07-crontab-verification.png" alt="Crontab Linux pour la vérification des sauvegardes" width="632" height="18" loading="lazy" decoding="async">
+        <img class="media-img" src="assets/projets/sauvegardes/06-task-scheduler.png" alt="Planificateur de taches Windows (scripts PowerShell)">
+        <img class="media-img" src="assets/projets/sauvegardes/07-crontab-verification.png" alt="Crontab Linux pour verification des sauvegardes">
       </div>
+      <br>
       <div class="card card-full">
         <h2 style="margin:0 0 10px;">Email d’alerte (supervision)</h2>
         <p class="muted" style="line-height:1.6;">
-          En cas d'anomalie, l'email précise ce qui doit être vérifié : taille insuffisante,
-          délai dépassé, fichier manquant ou erreur d'exécution.
+          Exemple d’email envoyé en cas d'anomalie, et liste les différentes erreurs (taille insuffisante, délais non respectés, pas assez de fichiers).
         </p>
-        <img class="media-img" src="assets/projets/sauvegardes/04-email-alerte.png" alt="Email d'alerte de sauvegarde anonymisé" width="1135" height="320" loading="lazy" decoding="async">
+        <img class="media-img" src="assets/projets/sauvegardes/04-email-alerte.png" alt="Capture email d alerte (anonymisee)">
       </div>
+      <br>
       <div class="card card-full">
-        <h2 style="margin:0 0 10px;">Stockage sur le poste interne Linux</h2>
+        <h2 style="margin:0 0 10px;">Stockage des données sur notre poste interne (Linux)</h2>
         <p class="muted" style="line-height:1.6;">
-          Les sauvegardes sont rangées dans une arborescence stable afin de retrouver rapidement
-          un client, une machine et une date de sauvegarde.
+          Exemple d’arborescence de données stockées sur notre poste dédié au stockage des données.
         </p>
-        <img class="media-img" src="assets/projets/sauvegardes/05-stockage-linux.png" alt="Arborescence du stockage Linux" width="586" height="104" loading="lazy" decoding="async">
+        <img class="media-img" src="assets/projets/sauvegardes/05-stockage-linux.png" alt="Capture stockage Linux">
       </div>
 
     </section>

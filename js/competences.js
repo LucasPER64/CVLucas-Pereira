@@ -1,7 +1,7 @@
 const skillGroups = [
   {
-    title: "Réseau",
-    desc: "Configuration, compréhension et recherche de pannes",
+    title: "Reseau",
+    desc: "Mise en oeuvre et bases solides",
     tags: [
       { label: "IPv4", level: "moyen" },
       { label: "DHCP", level: "operationnel" },
@@ -9,12 +9,12 @@ const skillGroups = [
       { label: "Routage", level: "operationnel" },
       { label: "LAN / WAN", level: "moyen" },
       { label: "Cisco Packet Tracer", level: "moyen" },
-      { label: "Dépannage réseau", level: "operationnel" }
+      { label: "Dépannage reseau", level: "operationnel" }
     ]
   },
   {
-    title: "Systèmes",
-    desc: "Installation, maintenance et utilisation au quotidien",
+    title: "Systemes",
+    desc: "Administration et utilisation",
     tags: [
       { label: "Windows", level: "moyen" },
       { label: "Windows Server", level: "moyen" },
@@ -26,18 +26,18 @@ const skillGroups = [
   },
   {
     title: "Sauvegardes",
-    desc: "Automatisation, contrôle et suivi des sauvegardes",
+    desc: "Protection des données et bonnes pratiques",
     tags: [
-      { label: "Stratégies de sauvegarde", level: "operationnel" },
-      { label: "Rotation / conservation", level: "operationnel" },
-      { label: "Export / copie vers NAS", level: "operationnel" },
+      { label: "Stratégies de sauvegarde", level: "moyen" },
+      { label: "Rotation / conservation", level: "moyen" },
+      { label: "Export / copie vers NAS", level: "moyen" },
       { label: "Vérifications / tests", level: "operationnel" },
       { label: "Sensibilisation", level: "operationnel" }
     ]
   },
   {
     title: "Support et terrain",
-    desc: "Interventions concrètes et accompagnement des utilisateurs",
+    desc: "Relation client et interventions",
     tags: [
       { label: "Support utilisateurs", level: "operationnel" },
       { label: "Prise en charge incidents", level: "moyen" },
@@ -48,27 +48,27 @@ const skillGroups = [
     ]
   },
   {
-    title: "Cybersécurité",
-    desc: "Des réflexes appliqués dans chaque intervention",
+    title: "Cybersécurite",
+    desc: "Notions et sensibilisation",
     tags: [
-      { label: "Bonnes pratiques", level: "operationnel" },
-      { label: "Principes ISO", level: "operationnel" },
-      { label: "Risques", level: "operationnel" },
-      { label: "Documentation procédures", level: "operationnel" },
-      { label: "Sensibilisation", level: "operationnel" }
+      { label: "Bonnes pratiques", level: "moyen" },
+      { label: "Principes ISO", level: "bases" },
+      { label: "Risques", level: "moyen" },
+      { label: "Documentation procédures", level: "moyen" },
+      { label: "Sensibilisation", level: "moyen" }
     ]
   },
   {
     title: "Langues",
-    desc: "Anglais technique utilisé pour la documentation",
+    desc: "Langues utilisées dans un contexte professionnel",
     tags: [
-      { label: "Anglais (B1/B2)", level: "operationnel" },
-      { label: "Lecture de documentation technique", level: "operationnel" }
+      { label: "Anglais (B1/B2)", level: "avance" },
+      { label: "Lecture / Rédaction de procédures en anglais", level: "avance" }
     ]
   }
 ];
 
-// Ordre d'affichage : opérationnel/avancé en premier, puis moyen, puis bases
+// Ordre d'affichage: operationnel/avance en premier, puis moyen, puis bases
 const LEVEL_ORDER = { operationnel: 0, avance: 0, moyen: 1, bases: 2 };
 
 function normalize(s) {
@@ -111,9 +111,8 @@ function buildSkills() {
     const tagsHtml = tagsSorted.map(t => {
       if (typeof t === "string") {
         return `
-          <span class="tag level-qualite" data-skill="${t} qualite" data-tooltip="${t}">
+          <span class="tag" data-skill="${t}" data-tooltip="${t}">
             <span class="tag-text">${t}</span>
-            <span class="tag-badge">Qualité</span>
           </span>
         `;
       }
