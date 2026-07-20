@@ -3,16 +3,16 @@ const formations = [
     id: "bts-ciel",
     yearStart: 2024,
     yearEnd: 2026,
-    title: "BTS CIEL - Option Réseau",
+    title: "BTS CIEL - Option Réseaux",
     school: "CFAI Adour",
     city: "Assat",
-    status: "En cours",
+    status: "Obtenu",
     bullets: [
-      "Réseau (adressage IPV4, VLAN, DHCP, routage)",
-      "Développement (C, C++, JS, HTML, CSS, SQL)",
-      "Systèmes (Windows/Windows Server/Linux)",
-      "Cybersécurité (Organismes et ISO)",
-      "Projet de fin d'année réalisé en entreprise"
+      "Réseaux : adressage IPv4, VLAN, DHCP et routage",
+      "Développement : C, C++, JavaScript, HTML, CSS et SQL",
+      "Systèmes : Windows, Windows Server et Linux",
+      "Cybersécurité : bonnes pratiques, organismes et normes ISO",
+      "Projet de validation réalisé en entreprise"
     ],
     skills: ["Cybersécurité", "Travail en groupe", "Développement", "Documentation", "Réseau", "Support", "Systèmes"]
   },
@@ -20,13 +20,13 @@ const formations = [
     id: "bac",
     yearStart: 2022,
     yearEnd: 2023,
-    title: "Baccalaureat Général",
+    title: "Baccalauréat général",
     school: "Lycée de Navarre",
     city: "Saint-Jean-Pied-de-Port",
     status: "Obtenu",
     bullets: [
-      "Enseignements généraux et specialités (HGGSP-SES)",
-      "Grand Oral"
+      "Enseignements généraux et spécialités HGGSP et SES",
+      "Préparation et présentation du Grand oral"
     ],
     skills: ["Autonomie", "Organisation", "Rigueur", "Travail en groupe"]
   }
@@ -77,7 +77,7 @@ function clearFormationSelection() {
   const extra = document.getElementById("eduExtra");
 
   if (t) t.textContent = "Sélectionnez une formation";
-  if (m) m.textContent = "Cliquez sur une ligne a gauche.";
+  if (m) m.textContent = "Cliquez sur une ligne à gauche.";
   if (bullets) bullets.innerHTML = "";
   if (tags) tags.innerHTML = "";
   if (extra) extra.classList.add("is-hidden");
